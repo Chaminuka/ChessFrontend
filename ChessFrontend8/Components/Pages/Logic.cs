@@ -21,7 +21,7 @@ namespace ChessFrontend8.Components.Pages
             {
                 // Adjust the URL to match your API's address
                
-                var response = await httpClient.GetAsync($"https://chessbackend-1-zc6m.onrender.com/api/GAMES/currposition?position={Uri.EscapeDataString(FEN)}");
+                var response = await httpClient.GetAsync($"https://chessbackend-3.onrender.com/api/GAMES/currposition?position={Uri.EscapeDataString(FEN)}");
 
 
                 if (response.IsSuccessStatusCode)
@@ -41,7 +41,7 @@ namespace ChessFrontend8.Components.Pages
             using (var httpClient = new HttpClient())
             {
                 // Adjust the URL to match your API's address
-                var response = await httpClient.GetAsync($"https://chessbackend-1-zc6m.onrender.com/api/GAMES/FEN?moves={Uri.EscapeDataString(moves)}");
+                var response = await httpClient.GetAsync($"https://chessbackend-3.onrender.com/api/GAMES/FEN?moves={Uri.EscapeDataString(moves)}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -86,7 +86,7 @@ namespace ChessFrontend8.Components.Pages
 
             public async Task<bool> ValidateMove(string pgn)
             {
-                var url = $"https://chessbackend-1-zc6m.onrender.com/api/Games/Validator?moves={Uri.EscapeDataString(pgn)}";
+                var url = $"https://chessbackend-3.onrender.com/api/Games/Validator?moves={Uri.EscapeDataString(pgn)}";
                 var response = await _httpClient.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
@@ -107,7 +107,7 @@ namespace ChessFrontend8.Components.Pages
                     Password = password
                 };
 
-                var response = await _httpClient.PostAsJsonAsync("https://chessbackend-1-zc6m.onrender.com/api/UserAccount/login", loginRequest);
+                var response = await _httpClient.PostAsJsonAsync("https://chessbackend-3.onrender.com/api/UserAccount/login", loginRequest);
 
                 return response.IsSuccessStatusCode; // Return true if login is successful
             }
