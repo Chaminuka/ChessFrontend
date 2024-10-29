@@ -5,6 +5,9 @@ using System.Net.Http;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Set the application to listen on port 8080
+builder.WebHost.UseUrls("http://*:8080"); // This line binds the application to port 8080
+
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
@@ -12,7 +15,7 @@ builder.Services.AddRazorComponents()
 // Register HttpClient with a BaseAddress
 builder.Services.AddHttpClient("ApiClient", client =>
 {
-    client.BaseAddress = new Uri("https://localhost:7076/"); // Replace with your actual backend URL
+    client.BaseAddress = new Uri("https://chessbackend-1-zc6m.onrender.com/"); // Replace with your actual backend URL
 });
 
 // Registering HttpClient as the default instance
